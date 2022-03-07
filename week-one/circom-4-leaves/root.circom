@@ -6,24 +6,24 @@ template merkle_root(n) {
     signal input leaves[n];
     signal output root;
 
-    var comp[2*n-1];
-    component mimc[n-1];
+    var totalLeaves[2*n-1];
+    component sponge[n-1];
 
-    /* Hashes the first leaves and stores it on comp */
+    /* Hash leaves and store */
     for (var i = 0; i < n; i++) {
-        comp[i] = leaves[i];
+        totalLeaves[i] = leaves[i];
     }
 
-    /* Hashes each pair of leaves and upper levels */
+    /* Hash upper levels */
     for (var i = 0; i < n - 1; i++) {
-        mimc[i] = MiMCSponge(2, 220, 1);
-        mimc[i].k <== 0;
-        mimc[i].ins[0] <== comp[2*i];
-        mimc[i].ins[1] <== comp[2*i+1];
-        comp[i+n] = mimc[i].outs[0];
+        sponge[i] = MiMCSponge(2, 220, 1);
+        sponge[i].k <== 0;
+        sponge[i].ins[0] <== totalLeaves[2*i];
+        sponge[i].ins[1] <== totalLeaves[2*i+1];
+        totalLeaves[i+n] = sponge[i].outs[0];
     }
 
-    root <== comp[2*n-2];
+    root <== totalLeaves[2*n-2];
 
 }
 
