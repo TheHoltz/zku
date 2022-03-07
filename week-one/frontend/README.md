@@ -1,3 +1,5 @@
+https://user-images.githubusercontent.com/38303017/156987811-8f62aa39-98c6-4dee-8cb8-f6e036db73ac.mov
+
 # ZKU Token
 
 Website for ZKU's first assignment project.
