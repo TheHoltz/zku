@@ -1,6 +1,6 @@
 circom root.circom --r1cs --wasm --sym --c
 
-node ./root_js/generate_witness.js ./root_js/root.wasm ./root_js/input.json witness.wtns
+node ./root_js/generate_witness.js ./root_js/root.wasm input.json witness.wtns
 
 snarkjs powersoftau new bn128 12 pot12_0000.ptau -v
 
