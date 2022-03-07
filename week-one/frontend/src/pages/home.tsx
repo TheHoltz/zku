@@ -89,7 +89,7 @@ export function App() {
         }}
       />
 
-      <img src="/assets/ZTOKEN.png" width="100" class="ztoken" />
+      <img src="/assets/ZToken.png" width="100" class="ztoken" />
 
       <h1>ZkuToken</h1>
       {wallet ? (
