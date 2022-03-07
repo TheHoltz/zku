@@ -5,7 +5,7 @@ import preact from '@preact/preset-vite'
 export default defineConfig({
   plugins: [preact()],
   alias: {
-    'react': 'preact-compat',
-    'react-dom': 'preact-compat'
+    'react': 'preact/compat',
+    'react-dom': 'preact/compat'
   }
 })
